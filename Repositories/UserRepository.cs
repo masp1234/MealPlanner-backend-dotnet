@@ -1,6 +1,5 @@
 ﻿using MealPlanner_backend.Data;
 using MealPlanner_backend.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace MealPlanner_backend.Repositories
@@ -15,11 +14,17 @@ namespace MealPlanner_backend.Repositories
             _context = context;
         }
 
-        public async Task<ActionResult<List<User>>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
             var users = await _context.Users.ToListAsync();
             return users;
 
+        }
+
+        public async Task<User?> GetUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            return user;
         }
     }
 

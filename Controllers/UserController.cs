@@ -21,7 +21,19 @@ namespace MealPlanner_backend.Controllers
         public async Task<ActionResult<List<User>>> GetAllUsers()
         {
             var users = await _userService.GetAllUsers();
-            return users;
+            return Ok(users);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(int id)
+        {
+            var user = await _userService.GetUser(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
         }
     }
 }

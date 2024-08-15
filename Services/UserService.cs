@@ -1,6 +1,5 @@
 ﻿using MealPlanner_backend.Repositories;
 using MealPlanner_backend.Models;
-using Microsoft.AspNetCore.Mvc;
 namespace MealPlanner_backend.Services
 {
     public class UserService
@@ -13,9 +12,14 @@ namespace MealPlanner_backend.Services
             this._userRepository = userRepository;
         }
 
-        public async Task<ActionResult<List<User>>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
             return await _userRepository.GetAllUsers();
+        }
+
+        public async Task<User?> GetUser(int id)
+        {
+            return await _userRepository.GetUser(id);
         }
     }
 }
