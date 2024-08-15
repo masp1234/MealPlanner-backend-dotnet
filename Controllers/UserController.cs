@@ -1,4 +1,5 @@
-﻿using MealPlanner_backend.Models;
+﻿using MealPlanner_backend.Dtos.User;
+using MealPlanner_backend.Models;
 using MealPlanner_backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +35,22 @@ namespace MealPlanner_backend.Controllers
             }
 
             return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<User>> AddUser(UserRegistrationPayload payload)
+        {
+            try
+            {
+                User? user = await _userService.AddUser(payload);
+                return Ok(user);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
+           
         }
     }
 }

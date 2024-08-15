@@ -1,6 +1,7 @@
 ﻿using MealPlanner_backend.Data;
 using MealPlanner_backend.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 namespace MealPlanner_backend.Repositories
 {
@@ -26,7 +27,27 @@ namespace MealPlanner_backend.Repositories
             var user = await _context.Users.FindAsync(id);
             return user;
         }
-    }
 
-    
+        public async Task<User?> GetUserByEmail(string email)
+        {
+            var user = await _context.Users.
+                FirstOrDefaultAsync(user => user.Email == email);
+            return user;
+        }
+
+
+        public async Task<User?> AddUser(User newUser)
+            {
+                _context.Users.Add(newUser);
+                var result = await _context.SaveChangesAsync();
+                if (result == 1)
+                {
+                    return newUser;
+                }
+                return null;
+            }
+
+
+        }
+
 }

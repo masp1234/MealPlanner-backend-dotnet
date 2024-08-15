@@ -10,6 +10,11 @@
 
         public string Email { get; set; }
 
-
+        public User(string authId, string name, string email)
+        {
+            AuthId = authId;
+            Name = name;
+            Email = email;
+        }
     }
 }
