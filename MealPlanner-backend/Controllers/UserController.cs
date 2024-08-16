@@ -43,10 +43,6 @@ namespace MealPlanner_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> AddUser(UserRegistrationPayload payload)
         {
-            if (payload is null)
-            {
-                return BadRequest("Missing payload.");
-            }
             try
             {
                 User? user = await _userService.AddUser(payload);
