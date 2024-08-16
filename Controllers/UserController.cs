@@ -8,7 +8,7 @@ namespace MealPlanner_backend.Controllers
 
     [ApiController]
     [Route("api/[controller]")]
-    public class UserController: ControllerBase
+    public class UserController : ControllerBase
     {
 
         private readonly UserService _userService;
@@ -45,12 +45,12 @@ namespace MealPlanner_backend.Controllers
                 User? user = await _userService.AddUser(payload);
                 return Ok(user);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-            
-           
+
+
         }
     }
 }

@@ -1,19 +1,13 @@
 ﻿using MealPlanner_backend.Data;
 using MealPlanner_backend.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata.Ecma335;
 
 namespace MealPlanner_backend.Repositories
 {
-    public class UserRepository
+    public class UserRepository(DataContext context)
     {
 
-        private readonly DataContext _context;
-
-        public UserRepository(DataContext context)
-        {
-            _context = context;
-        }
+        private readonly DataContext _context = context;
 
         public async Task<List<User>> GetAllUsers()
         {
@@ -37,17 +31,17 @@ namespace MealPlanner_backend.Repositories
 
 
         public async Task<User?> AddUser(User newUser)
+        {
+            _context.Users.Add(newUser);
+            var result = await _context.SaveChangesAsync();
+            if (result == 1)
             {
-                _context.Users.Add(newUser);
-                var result = await _context.SaveChangesAsync();
-                if (result == 1)
-                {
-                    return newUser;
-                }
-                return null;
+                return newUser;
             }
-
-
+            return null;
         }
+
+
+    }
 
 }

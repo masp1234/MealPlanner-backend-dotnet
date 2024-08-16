@@ -1,8 +1,6 @@
-﻿using MealPlanner_backend.Repositories;
+﻿using MealPlanner_backend.Dtos.User;
 using MealPlanner_backend.Models;
-using MealPlanner_backend.Dtos.User;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Xml.Linq;
+using MealPlanner_backend.Repositories;
 namespace MealPlanner_backend.Services
 {
     public class UserService
@@ -34,12 +32,12 @@ namespace MealPlanner_backend.Services
                 throw new Exception($"User with email: '{payload.Email}' already exists.");
             }
 
-            User newUser = new (payload.Auth0UserId,
+            User newUser = new(payload.Auth0UserId,
                                     payload.Name,
                                     payload.Email);
 
             return await _userRepository.AddUser(newUser);
-            
+
         }
     }
 }
