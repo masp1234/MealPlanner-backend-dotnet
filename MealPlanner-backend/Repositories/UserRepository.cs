@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MealPlanner_backend.Repositories
 {
-    public class UserRepository(DataContext context)
+    public class UserRepository(DataContext context) : IUserRepository
     {
 
         private readonly DataContext _context = context;

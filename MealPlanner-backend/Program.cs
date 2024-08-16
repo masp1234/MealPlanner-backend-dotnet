@@ -18,7 +18,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 // Register repositories
-builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Register services
 builder.Services.AddScoped<UserService>();

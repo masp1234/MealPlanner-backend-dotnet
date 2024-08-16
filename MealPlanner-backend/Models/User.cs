@@ -16,5 +16,9 @@
             Name = name;
             Email = email;
         }
+
+        public User()
+        {
+        }
     }
 }
