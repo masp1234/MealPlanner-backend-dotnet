@@ -3,15 +3,11 @@ using MealPlanner_backend.Models;
 using MealPlanner_backend.Repositories;
 namespace MealPlanner_backend.Services
 {
-    public class UserService
+    public class UserService(UserRepository userRepository)
     {
 
-        private readonly UserRepository _userRepository;
+        private readonly UserRepository _userRepository = userRepository;
 
-        public UserService(UserRepository userRepository)
-        {
-            this._userRepository = userRepository;
-        }
 
         public async Task<List<User>> GetAllUsers()
         {
