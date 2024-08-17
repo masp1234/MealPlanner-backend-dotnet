@@ -5,7 +5,12 @@ VisualStudioVersion = 17.10.35201.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealPlanner-backend", "MealPlanner-backend\MealPlanner-backend.csproj", "{9ACB6B1D-4CEE-40E2-8CE6-D461591DC187}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealPlanner-backend.Tests", "MealPlanner-backend.Tests\MealPlanner-backend.Tests.csproj", "{7FCCE197-A3DD-47C9-9E37-C5302A4FA544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealPlanner-backend.Tests", "MealPlanner-backend.Tests\MealPlanner-backend.Tests.csproj", "{7FCCE197-A3DD-47C9-9E37-C5302A4FA544}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7A085C49-95CF-4569-9886-80AADE4674B6}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
